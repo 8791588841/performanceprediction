@@ -10,11 +10,7 @@ app = application
 
 #Route for a home page.
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/predictdata',methods=['GET','POST'])
+@app.route('/',methods=['GET','POST'])
 def predict_datapoint():
     if request.method=='GET':
         return render_template('home.html')
@@ -28,14 +24,9 @@ def predict_datapoint():
             reading_score=float(request.form.get('writing_score')),
             writing_score=float(request.form.get('reading_score'))
         )
-        pred_df = data.get_data_as_data_frame()
-        print(pred_df) 
-
+        pred_df = data.get_data_as_data_frame() 
         predict_pipeline = PredictPipeline()
-        print("PredictPipeline")
         results = predict_pipeline.predict(pred_df)
-        print("Anything")
-        print("Results :",results[0])
         return render_template('home.html',results=int(results[0]))
 
 if __name__=="__main__":
