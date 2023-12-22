@@ -6,4 +6,4 @@
 #Pipeline is deployed for prediction.
 #ExceptionHandling and Logging are implemented for tracking the flow of the project.
 #Model pickling is performed.
-#Requirements.txt is used for all the relevant libraries. 
+#Requirements.txt is used for all the relevant libraries.
